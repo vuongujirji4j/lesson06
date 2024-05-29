@@ -1,0 +1,51 @@
+﻿@model IEnumerable<lesson06.Models.PvvSong>
+
+@{
+    ViewBag.Title = "Pvv: danh sách bài hát";
+}
+
+<h2>Pvv: danh sách bài hát</h2>
+
+<p>
+    @Html.ActionLink("Create New", "PvvCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PvvTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PvvAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PvvArtist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PvvYearRelease)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvArtist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PvvYearRelease)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
